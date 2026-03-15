@@ -1,6 +1,8 @@
 import React, { ReactNode } from "react";
 import HeroHeader from "./HeroSection";
 import { profile } from "@/data/profile";
+import HeroSection from "./HeroSection";
+import Header from "@/components/Header";
 
 type Props = {
   children: ReactNode;
@@ -9,7 +11,8 @@ type Props = {
 function HeroLayout({ children }: Props) {
   return (
     <div>
-      <HeroHeader profile={profile} />
+      <Header />
+      <HeroSection profile={profile} />
       {children}
     </div>
   );

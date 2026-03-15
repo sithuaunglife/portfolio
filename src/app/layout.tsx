@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={roboto.variable}>
+    <html lang="en" className={`dark ${roboto.variable}`}>
       <body className={`antialiased`}>{children}</body>
     </html>
   );
