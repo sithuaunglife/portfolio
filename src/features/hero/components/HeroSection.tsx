@@ -12,7 +12,7 @@ type Props = {
 function HeroSection({ profile: { name, email, photo } }: Props) {
   return (
     <section className="min-h-[80vh] flex items-center">
-      <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center p-10">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 py-24">
         {/* LEFT */}
         <div className="space-y-6">
           <h1 className="text-5xl font-bold tracking-tight">Hi, I'm {name}</h1>

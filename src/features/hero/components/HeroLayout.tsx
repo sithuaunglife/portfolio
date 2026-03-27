@@ -1,5 +1,4 @@
-import React, { ReactNode } from "react";
-import HeroHeader from "./HeroSection";
+import { ReactNode } from "react";
 import { profile } from "@/data/profile";
 import HeroSection from "./HeroSection";
 import Header from "@/components/Header";
