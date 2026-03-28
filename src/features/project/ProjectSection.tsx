@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { ProjectTypes } from "@/types/ProjectTypes";
 import { Button } from "@base-ui/react";
-import { Github, Link } from "lucide-react";
+import { ExternalLink, Github, Link } from "lucide-react";
 
 type Props = {
     project: ProjectTypes[];
@@ -62,7 +62,7 @@ function ProjectSection({ project }: Props) {
                 className="text-muted-foreground hover:text-foreground hover:scale-110 transition cursor-pointer"
               >
                 <Button className="flex items-center gap-2 text-muted-foreground hover:text-foreground hover:scale-110 transition cursor-pointer">
-                  <Link size={16} />
+                  <ExternalLink size={16} />
                   Live Demo
                 </Button>
               </a>
