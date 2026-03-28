@@ -11,12 +11,12 @@ type Props = {
 
 function HeroSection({ profile: { name, email, photo } }: Props) {
   return (
-    <section className="min-h-[80vh] flex items-center">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 py-24">
+    <section className="min-h-screen flex items-center py-10" id="hero">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 w-full">
         {/* LEFT */}
         <div className="space-y-6">
           <h1 className="text-5xl font-bold tracking-tight">Hi, I'm {name}</h1>
-          <h2 className="text-5xl text-muted-foreground tracking-tight">
+          <h2 className="text-3xl text-muted-foreground tracking-tight">
             Frontend Developer
           </h2>
 
@@ -26,13 +26,16 @@ function HeroSection({ profile: { name, email, photo } }: Props) {
           </p>
 
           <div className="flex gap-4">
-            <Button
-              size="lg"
-              variant="outline"
-              className="hover:scale-105 transition"
-            >
-              View Projects
-            </Button>
+            <a href="#projects">
+              {" "}
+              <Button
+                size="lg"
+                variant="outline"
+                className="hover:scale-105 transition"
+              >
+                View Projects
+              </Button>
+            </a>
 
             <Button size="lg" className="hover:scale-105 transition">
               Contact Me
@@ -67,7 +70,7 @@ function HeroSection({ profile: { name, email, photo } }: Props) {
 
         {/* RIGHT */}
         <div className="flex justify-center md:justify-end">
-          <Card className="p-2">
+          <Card className="p-2 shadow-xl border">
             <CardContent className="p-0">
               <img
                 src={photo}
