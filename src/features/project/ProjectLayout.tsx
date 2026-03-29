@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import ProjectSection from "./ProjectSection";
 import { project } from "@/data/project";
-import ProjectCard from "./ProjectSection";
 
 type Props = {
   children: ReactNode;
@@ -10,7 +9,7 @@ type Props = {
 function ProjectLayout({ children }: Props) {
   return (
     <div>
-      <ProjectCard project={project} />
+      <ProjectSection project={project} />
       {children}
     </div>
   );
