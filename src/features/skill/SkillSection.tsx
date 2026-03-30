@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { iconMap } from "@/data/skill";
+import { iconMap, skillIconMap } from "@/data/skill";
 import { SkillTypes } from "@/types/SkillTypes";
 
 type Props = {
@@ -39,19 +39,31 @@ function SkillsSection({ skill }: Props) {
               className="p-4 group hover:shadow-md transition"
             >
               <CardContent className="space-y-5">
+
+                {/* Title  */}
                 <div className="flex items-center gap-2">
                   {Icon && (
                     <Icon className="w-5 h-5 text-muted-foreground transition group-hover:scale-110 group-hover:text-foreground" />
                   )}
-                  <h3 className="text-lg font-semibold">{category.title}</h3>
+                  <h3 className="text-lg font-semibold cursor-default">{category.title}</h3>
                 </div>
 
+                {/* Skills  */}
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((item) => (
-                    <Badge key={item} variant="secondary">
-                      {item}
-                    </Badge>
-                  ))}
+                  {category.skills.map((item) => {
+                    const SkillIcon = skillIconMap[item];
+
+                    return (
+                      <Badge
+                        key={item}
+                        variant="secondary"
+                        className="flex items-center gap-2 px-4 py-2.5 text-sm rounded-md bg-muted transition hover:scale-105 cursor-default"
+                      >
+                        {SkillIcon && <SkillIcon className="w-5 h-5" />}
+                        {item}
+                      </Badge>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>

@@ -10,7 +10,6 @@ type Props = {
 function HeroLayout({ children }: Props) {
   return (
     <div>
-      <Header />
       <HeroSection profile={profile} />
       {children}
     </div>
