@@ -30,7 +30,7 @@ function ProjectSection({ project }: Props) {
       {/* Grid */}
       <div className="max-w-4xl mx-auto px-6 grid md:grid-cols-3 gap-8">
         {project.map((el) => (
-          <Card key={el.id} className="overflow-hidden flex flex-col h-full">
+          <Card key={el.id} className="overflow-hidden flex flex-col h-full transition hover:scale-105">
             <img src={el.image} className="h-56 w-full object-cover" />
 
             <CardContent className="p-4 space-y-3 flex-1">
