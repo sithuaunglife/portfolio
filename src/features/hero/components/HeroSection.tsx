@@ -1,15 +1,23 @@
 "use client";
 
-import { UserProfile } from "@/types/heroTypes";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { HeroTypes } from "@/types/HeroTypes";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { FaUpwork } from "react-icons/fa6";
 
 type Props = {
-  profile: UserProfile;
+  hero: HeroTypes;
 };
 
-function HeroSection({ profile: { name, email, photo } }: Props) {
+function HeroSection({
+  hero: {
+    name,
+    email,
+    photo,
+    link: { linkedin, github, upwork },
+  },
+}: Props) {
   return (
     <section className="min-h-screen flex items-center py-10" id="hero">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 w-full">
@@ -37,22 +45,23 @@ function HeroSection({ profile: { name, email, photo } }: Props) {
               </Button>
             </a>
 
-            <Button size="lg" className="hover:scale-105 transition">
-              Contact Me
-            </Button>
+            <a href="#contact">
+              <Button size="lg" className="hover:scale-105 transition">
+                Contact Me
+              </Button>
+            </a>
           </div>
 
           <div className="flex gap-5 pt-4">
             <a
-              href="https://github.com/sithuaunglife"
-              target="_blank"
+              href={`mailto:${email}`}
               className="text-muted-foreground hover:text-foreground hover:scale-110 transition"
             >
-              <Github size={22} />
+              <Mail size={22} />
             </a>
 
             <a
-              href="https://linkedin.com/in/sithuaunglife"
+              href={linkedin}
               target="_blank"
               className="text-muted-foreground hover:text-foreground hover:scale-110 transition"
             >
@@ -60,10 +69,19 @@ function HeroSection({ profile: { name, email, photo } }: Props) {
             </a>
 
             <a
-              href={`mailto:${email}`}
+              href={upwork}
+              target="_blank"
               className="text-muted-foreground hover:text-foreground hover:scale-110 transition"
             >
-              <Mail size={22} />
+              <FaUpwork size={22} />
+            </a>
+
+            <a
+              href={github}
+              target="_blank"
+              className="text-muted-foreground hover:text-foreground hover:scale-110 transition"
+            >
+              <Github size={22} />
             </a>
           </div>
         </div>

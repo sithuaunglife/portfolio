@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { profile } from "@/data/profile";
 import AboutSection from "./AboutSection";
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
 function AboutLayout({ children }: Props) {
   return (
     <div>
-      <AboutSection profile={profile} />
+      <AboutSection />
       {children}
     </div>
   );
