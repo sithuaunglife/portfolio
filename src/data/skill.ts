@@ -10,7 +10,7 @@ import {
   SiCss,
   SiVscodium,
 } from "react-icons/si";
-import { VscAdd, VscCode } from "react-icons/vsc";
+import { VscCode } from "react-icons/vsc";
 
 export const skill = [
   {
