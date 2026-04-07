@@ -7,13 +7,13 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 
-import { Home } from "lucide-react";
-
+import { Home, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [show, setShow] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const lastScrollY = useRef(0);
 
@@ -21,17 +21,14 @@ function Header() {
     const handleScroll = () => {
       const current = window.scrollY;
 
-      // style change
       setScrolled(current > 50);
 
-      // ignore tiny scrolls
       if (Math.abs(current - lastScrollY.current) < 10) return;
 
-      // direction detection
       if (current > lastScrollY.current && current > 80) {
-        setShow(false); // scrolling down
+        setShow(false);
       } else {
-        setShow(true); // scrolling up
+        setShow(true);
       }
 
       lastScrollY.current = current;
@@ -41,88 +38,100 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // close menu when back to top
+  useEffect(() => {
+    if (!scrolled) setOpen(false);
+  }, [scrolled]);
+
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 px-4 transition-all duration-300 ease-out
-  ${show ? "translate-y-0" : "-translate-y-full"}
-  ${
-    scrolled
-      ? "bg-card/80 backdrop-blur border-b shadow-sm"
-      : "bg-transparent border-transparent"
-  }`}
+      className={`fixed top-0 left-0 w-full z-50 px-4 transition-all duration-300
+      ${show ? "translate-y-0" : "-translate-y-full"}
+      ${
+        scrolled
+          ? "bg-card/80 backdrop-blur border-b shadow-sm"
+          : "bg-transparent border-transparent"
+      }`}
     >
-      <div className="container py-2 mx-auto flex items-center justify-between">
-        {/* LEFT → Logo / Home */}
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="#hero"
-                className="text-base font-medium px-5 py-2 rounded-xl border border-transparent transition-all hover:border-border hover:bg-muted hover:shadow-sm duration-200 hover:scale-95 active:scale-90 text-red-700"
-              >
-                Sithu Aung
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+      <div className="container py-2 mx-auto flex items-center justify-between md:mb-2">
+        {/* Logo */}
+        <a
+          href="#hero"
+          className="text-red-700 font-medium px-4 py-2 rounded-xl hover:bg-muted transition"
+        >
+          Sithu Aung
+        </a>
+
+        {/* Desktop Nav */}
+        <NavigationMenu className="hidden md:flex">
+          <NavigationMenuList className="gap-4">
+            <NavItem href="#hero">
+              <Home className="size-5" />
+            </NavItem>
+            <NavItem href="#projects">Projects</NavItem>
+            <NavItem href="#skills">Skills</NavItem>
+            <NavItem href="#about">About</NavItem>
+            <NavItem href="#contact">Contact</NavItem>
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* RIGHT → Navigation */}
-        <NavigationMenu className={"ml-auto"}>
-          <NavigationMenuList className="gap-6">
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="#hero"
-                className="text-base font-medium px-5 py-2 rounded-xl border border-transparent transition-all hover:border-border hover:bg-muted hover:shadow-sm duration-200 hover:scale-95 active:scale-90"
-              >
-                <Home className="size-5" />
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="#projects"
-                className="text-base font-medium px-5 py-2 rounded-xl border border-transparent transition-all hover:border-border hover:bg-muted hover:shadow-sm duration-200 hover:scale-95 active:scale-90"
-              >
-                Projects
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="#skills"
-                className="text-base font-medium px-5 py-2 rounded-xl border border-transparent transition-all hover:border-border hover:bg-muted hover:shadow-sm duration-200 hover:scale-95 active:scale-90"
-              >
-                Skills
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="#about"
-                className="text-base font-medium px-5 py-2 rounded-xl border border-transparent transition-all hover:border-border hover:bg-muted hover:shadow-sm duration-200 hover:scale-95 active:scale-90"
-              >
-                About
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="#contact"
-                className="text-base font-medium px-5 py-2 rounded-xl border border-transparent transition-all hover:border-border hover:bg-muted hover:shadow-sm duration-200 hover:scale-95 active:scale-90"
-              >
-                Contact
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        {/* Optional CTA */}
-        {/* <Button size="sm" className="ml-6">
-          Resume
-        </Button> */}
+        {/* Mobile Button (only after scroll) */}
+        {scrolled && (
+          <button
+            className="md:hidden p-2 rounded-lg hover:bg-muted transition"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        )}
       </div>
+
+      {/* Mobile Dropdown (separate from container) */}
+      {open && (
+        <div className="md:hidden px-4 pb-4">
+          <div className="flex flex-col gap-2 mt-2">
+            <MobileItem href="#hero" onClick={() => setOpen(false)}>
+              Home
+            </MobileItem>
+            <MobileItem href="#projects" onClick={() => setOpen(false)}>
+              Projects
+            </MobileItem>
+            <MobileItem href="#skills" onClick={() => setOpen(false)}>
+              Skills
+            </MobileItem>
+            <MobileItem href="#about" onClick={() => setOpen(false)}>
+              About
+            </MobileItem>
+            <MobileItem href="#contact" onClick={() => setOpen(false)}>
+              Contact
+            </MobileItem>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
+
+/* Reusable components */
+const NavItem = ({ href, children }: any) => (
+  <NavigationMenuItem>
+    <NavigationMenuLink
+      href={href}
+      className="text-base font-medium px-4 py-2 rounded-xl border border-transparent transition-all hover:border-border hover:bg-muted hover:shadow-sm duration-200 hover:scale-95 active:scale-90"
+    >
+      {children}
+    </NavigationMenuLink>
+  </NavigationMenuItem>
+);
+
+const MobileItem = ({ href, children, onClick }: any) => (
+  <a
+    href={href}
+    onClick={onClick}
+    className="px-4 py-3 rounded-xl hover:bg-muted transition text-base"
+  >
+    {children}
+  </a>
+);
 
 export default Header;

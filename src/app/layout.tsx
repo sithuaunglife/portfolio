@@ -15,7 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark scroll-smooth ${roboto.variable}`}>
+    <html
+      lang="en"
+      className={`dark scroll-smooth scroll-pt-12 ${roboto.variable}`}
+    >
       <body className={`antialiased`}>{children}</body>
     </html>
   );
