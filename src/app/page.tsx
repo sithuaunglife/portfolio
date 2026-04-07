@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Seperator from "@/components/Seperator";
 import AboutLayout from "@/features/about/components/AboutLayout";
@@ -19,6 +20,7 @@ export default function Page() {
       <AboutLayout />
       <Seperator />
       <ContactLayout />
+      <Footer />
     </>
   );
 }
