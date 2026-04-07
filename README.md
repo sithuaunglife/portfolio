@@ -12,3 +12,7 @@ A minimalist, sleek, high-tech developer portfolio focused on clarity, performan
 - Responsive layout
 - Fast performance and optimized fonts
 - Project showcase and developer profile
+
+## Version history
+
+- v1.0.0 - Portfolio released
