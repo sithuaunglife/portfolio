@@ -3,7 +3,7 @@ import { hero } from "@/data/hero";
 import HeroSection from "./HeroSection";
 
 type Props = {
-  children: ReactNode;
+  children? : ReactNode;
 };
 
 function HeroLayout({ children }: Props) {

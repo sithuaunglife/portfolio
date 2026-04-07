@@ -24,7 +24,6 @@ type FormData = {
 
 function ContactSection({
   contact: {
-    name,
     email,
     link: { linkedin, github, upwork },
   },

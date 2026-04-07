@@ -3,7 +3,7 @@ import ProjectSection from "./ProjectSection";
 import { project } from "@/data/project";
 
 type Props = {
-  children: ReactNode;
+  children? : ReactNode;
 };
 
 function ProjectLayout({ children }: Props) {

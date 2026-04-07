@@ -1,3 +1,4 @@
+import { SkillTypes } from "@/types/SkillTypes";
 import { Code2, Wrench } from "lucide-react";
 import { FaReact, FaGithub, FaGitAlt, FaDocker, FaFigma, FaHtml5 } from "react-icons/fa";
 
@@ -8,11 +9,10 @@ import {
   SiPostman,
   SiJavascript,
   SiCss,
-  SiVscodium,
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 
-export const skill = [
+export const skill: SkillTypes[] = [
   {
     title: "Tech Stack",
     icon: "code2",

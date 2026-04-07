@@ -68,7 +68,7 @@ function AboutSection() {
                 </h3>
               </div>
 
-              <p className="text-3xl font-bold">2 Completed</p>
+              <p className="text-3xl font-bold">1 Completed</p>
               <p className="text-sm text-muted-foreground">
                 Real-world and personal builds
               </p>

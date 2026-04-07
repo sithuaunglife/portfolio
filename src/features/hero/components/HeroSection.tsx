@@ -19,7 +19,7 @@ function HeroSection({
   },
 }: Props) {
   return (
-    <section className="min-h-screen flex items-center py-10" id="hero">
+    <section className="min-h-screen flex items-center py-10 pt-24" id="hero">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 w-full">
         {/* LEFT */}
         <div className="space-y-6">
@@ -29,8 +29,7 @@ function HeroSection({
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-xl">
-            Frontend developer focused on building sleek, minimalist, high-tech
-            interfaces and turning designs into real products.
+            Frontend developer focused on building sleek, minimalist and turning designs into real products.
           </p>
 
           <div className="flex gap-4">

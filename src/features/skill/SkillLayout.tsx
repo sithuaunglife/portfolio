@@ -3,7 +3,7 @@ import SkillSection from "./SkillSection";
 import { skill } from "@/data/skill";
 
 type Props = {
-  children: ReactNode;
+  children? : ReactNode;
 };
 
 const SkillLayout = ({ children }: Props) => {

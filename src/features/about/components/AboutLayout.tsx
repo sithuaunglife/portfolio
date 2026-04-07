@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import AboutSection from "./AboutSection";
 
 type Props = {
-  children: ReactNode;
+  children? : ReactNode;
 };
 
 function AboutLayout({ children }: Props) {

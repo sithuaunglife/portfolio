@@ -3,7 +3,7 @@ import ContactSection from "./ContactSection";
 import { contact } from "@/data/contact";
 
 type Props = {
-  children: ReactNode;
+  children? : ReactNode;
 };
 
 const ContactLayout = ({ children }: Props) => {
