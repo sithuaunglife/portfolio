@@ -76,14 +76,19 @@ function Header() {
         </NavigationMenu>
 
         {/* Mobile Button (only after scroll) */}
-        {scrolled && (
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <X /> : <Menu />}
-          </button>
-        )}
+        <button
+          className={`
+    md:hidden p-2 rounded-lg hover:bg-muted transition-all duration-300
+    ${
+      scrolled
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 -translate-y-3 pointer-events-none"
+    }
+  `}
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X /> : <Menu />}
+        </button>
       </div>
 
       {/* Mobile Dropdown (separate from container) */}
