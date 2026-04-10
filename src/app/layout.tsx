@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "../styles/globals.css";
+import Spotlight from "@/components/Spotlight";
 
 const roboto = Roboto({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -19,7 +20,13 @@ export default function RootLayout({
       lang="en"
       className={`dark scroll-smooth scroll-pt-12 ${roboto.variable}`}
     >
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased relative`}>
+        {/* 🌟 Spotlight layer */}
+        <Spotlight />
+
+        {/* Your content */}
+        {children}
+      </body>
     </html>
   );
 }
