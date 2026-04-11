@@ -16,3 +16,4 @@ A minimalist, sleek, high-tech developer portfolio focused on clarity, performan
 ## Version history
 
 - v1.0.0 - Portfolio released
+- v1.1.1 - Spotlight update
