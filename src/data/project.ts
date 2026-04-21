@@ -11,7 +11,7 @@ export const project = [
   },
   {
     id: "2",
-    title: "To-do list",
+    title: "To-do List",
     description:
       "My first personal to-do list project using Next.js and react.",
     image: "/to-doList.png",
