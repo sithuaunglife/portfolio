@@ -17,3 +17,4 @@ A minimalist, sleek, high-tech developer portfolio focused on clarity, performan
 
 - v1.0.0 - Portfolio released
 - v1.1.1 - Spotlight update
+- v1.2.0 - Freelance safe update
