@@ -6,7 +6,7 @@ export const project = [
       "Mala POS System – Frontend Developer (Next.js, Team Collaboration)",
     image: "/zhangliang-mala-pos.png",
     techStack: ["Next.js", "Tailwind", "React", "TypeScript"],
-    githubLink: "#https://github.com/heinhtetzan/zhangliang-mala-pos.git",
+    githubLink: "https://github.com/heinhtetzan/zhangliang-mala-pos.git",
     liveLink: "https://zhangliang-mala-pos.vercel.app/",
   },
   {
@@ -16,7 +16,7 @@ export const project = [
       "My first personal to-do list project using Next.js and react.",
     image: "/to-doList.png",
     techStack: ["Next.js", "Tailwind", "React"],
-    githubLink: "#https://github.com/sithuaunglife/todo-list.git",
+    githubLink: "https://github.com/sithuaunglife/todo-list.git",
     liveLink: "https://todo-list-xi-three-21.vercel.app",
   },
 ];
