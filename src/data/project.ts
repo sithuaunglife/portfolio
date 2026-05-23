@@ -17,6 +17,16 @@ export const project = [
     image: "/to-doList.png",
     techStack: ["Next.js", "Tailwind", "React"],
     githubLink: "https://github.com/sithuaunglife/todo-list.git",
-    liveLink: "https://todo-list-xi-three-21.vercel.app",
+    liveLink: "https://minimal-todo-list.vercel.app",
+  },
+  {
+    id: "3",
+    title: "Velix Bakery POS",
+    description:
+      "My second frontend project built with React, inspired by my sister’s imagination and by my teacher's project. Developed to practice component architecture, state management, and responsive layouts.",
+    image: "/to-doList.png",
+    techStack: ["Next.js", "Tailwind", "React"],
+    githubLink: "https://github.com/sithuaunglife/velix-bakery-pos.git",
+    liveLink: "https://velix-bakery-pos.vercel.app",
   },
 ];
