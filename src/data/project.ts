@@ -7,7 +7,7 @@ export const project = [
     image: "/zhangliang-mala-pos.png",
     techStack: ["Next.js", "Tailwind", "React", "TypeScript"],
     githubLink: "https://github.com/heinhtetzan/zhangliang-mala-pos.git",
-    liveLink: "https://zhangliang-mala-pos.vercel.app/",
+    liveLink: "https://mala-pos.teapos.store",
   },
   {
     id: "2",

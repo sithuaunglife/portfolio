@@ -4,5 +4,6 @@ export type ContactTypes = {
     linkedin: string;
     github: string;
     upwork: string;
+    fiverr: string;
   };
 };

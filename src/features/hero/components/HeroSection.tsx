@@ -3,8 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroTypes } from "@/types/HeroTypes";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { FileUser, Github, Linkedin, Mail } from "lucide-react";
 import { FaUpwork } from "react-icons/fa6";
+import { TbBrandFiverr } from "react-icons/tb";
 
 type Props = {
   hero: HeroTypes;
@@ -15,7 +16,7 @@ function HeroSection({
     name,
     email,
     photo,
-    link: { linkedin, github, upwork },
+    link: { linkedin, github, upwork, fiverr },
   },
 }: Props) {
   return (
@@ -29,7 +30,8 @@ function HeroSection({
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-xl">
-            Frontend developer focused on building sleek, minimalist and turning designs into real products.
+            Frontend developer focused on building sleek, minimalist and turning
+            designs into real products.
           </p>
 
           <div className="flex gap-4">
@@ -53,6 +55,14 @@ function HeroSection({
 
           <div className="flex gap-5 pt-4">
             <a
+              href="/Sithu-Aung-Frontend-Developer-Resume.pdf"
+              download
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground hover:scale-110 transition"
+            >
+              <FileUser size={22} />
+              <span className="text-sm leading-none">Resume</span>
+            </a>
+            <a
               href={`mailto:${email}`}
               className="text-muted-foreground hover:text-foreground hover:scale-110 transition"
             >
@@ -73,6 +83,14 @@ function HeroSection({
               className="text-muted-foreground hover:text-foreground hover:scale-110 transition"
             >
               <FaUpwork size={22} />
+            </a>
+
+            <a
+              href={fiverr}
+              target="_blank"
+              className="text-muted-foreground hover:text-foreground hover:scale-110 transition"
+            >
+              <TbBrandFiverr size={22} />
             </a>
 
             <a

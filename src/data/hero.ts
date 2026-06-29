@@ -7,5 +7,6 @@ export const hero = {
     linkedin: "https://linkedin.com/in/sithuaunglife",
     github: "https://github.com/sithuaunglife",
     upwork: "https://upwork.com/freelancers/sithuaunglife",
+    fiverr: "https://fiverr.com/sithuaunglife",
   },
 };

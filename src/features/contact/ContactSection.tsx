@@ -10,6 +10,7 @@ import { Github, Linkedin, Send } from "lucide-react";
 import { FaUpwork } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { ContactTypes } from "@/types/ContactTypes";
+import { TbBrandFiverr } from "react-icons/tb";
 
 type Props = {
   contact: ContactTypes;
@@ -25,7 +26,7 @@ type FormData = {
 function ContactSection({
   contact: {
     email,
-    link: { linkedin, github, upwork },
+    link: { linkedin, github, upwork, fiverr },
   },
 }: Props) {
   const {
@@ -172,6 +173,15 @@ function ContactSection({
                 <CardContent className="flex items-center justify-center gap-2">
                   <FaUpwork className="w-5 h-5" />
                   <span className="text-sm font-medium">Upwork</span>
+                </CardContent>
+              </Card>
+            </a>
+
+            <a href={fiverr} target="_blank" rel="noopener noreferrer">
+              <Card className="p-3 text-center hover:scale-105 hover:shadow-md transition">
+                <CardContent className="flex items-center justify-center gap-2">
+                  <TbBrandFiverr className="w-5 h-5" />
+                  <span className="text-sm font-medium">Fiverr</span>
                 </CardContent>
               </Card>
             </a>

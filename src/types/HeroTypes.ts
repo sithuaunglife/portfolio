@@ -6,5 +6,6 @@ export type HeroTypes = {
     linkedin: string;
     github: string;
     upwork: string;
+    fiverr: string;
   };
 };
