@@ -6,6 +6,8 @@ import { HeroTypes } from "@/types/HeroTypes";
 import { FileUser, Github, Linkedin, Mail } from "lucide-react";
 import { FaUpwork } from "react-icons/fa6";
 import { TbBrandFiverr } from "react-icons/tb";
+import { motion } from "motion/react";
+import { container, item } from "@/lib/animations";
 
 type Props = {
   hero: HeroTypes;
@@ -20,21 +22,50 @@ function HeroSection({
   },
 }: Props) {
   return (
-    <section className="min-h-screen flex items-center py-10 pt-24" id="hero">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 w-full">
+    <motion.section
+      animate={{ opacity: 1 }} // opacity: 1 is fully visible
+      transition={{ duration: 0.8 }}
+      className="min-h-screen flex items-center py-10 pt-24"
+      id="hero"
+    >
+      <motion.div
+        initial={{ opacity: 0, x: -50 }} // opacity : 0 is fully invisible, initial is starting state of the animation, x is same is translate x
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.8, // animation duration
+          delay: 0.2, // delay time before starting the animation
+        }}
+        className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 w-full"
+      >
         {/* LEFT */}
-        <div className="space-y-6">
-          <h1 className="text-5xl font-bold tracking-tight">Hi, I'm {name}</h1>
-          <h2 className="text-3xl text-muted-foreground tracking-tight">
+        <motion.div
+          variants={container} // variants is for getting the motion variant defined by you
+          initial="hidden" // " " is getting the "hidden" key from the property, variants={container} → Pass the variants object, `initial="hidden"` → Select the `hidden` key from that object.
+          animate="show"
+          className="space-y-6"
+        >
+          <motion.h1
+            variants={item} // initial and animate are not use here since it got into parent variants
+            className="text-5xl font-bold tracking-tight"
+          >
+            Hi, I'm {name}
+          </motion.h1>
+          <motion.h2
+            variants={item}
+            className="text-3xl text-muted-foreground tracking-tight"
+          >
             Frontend Developer
-          </h2>
+          </motion.h2>
 
-          <p className="text-lg text-muted-foreground max-w-xl">
+          <motion.p
+            variants={item}
+            className="text-lg text-muted-foreground max-w-xl"
+          >
             Frontend developer focused on building sleek, minimalist and turning
             designs into real products.
-          </p>
+          </motion.p>
 
-          <div className="flex gap-4">
+          <motion.div variants={item} className="flex gap-4">
             <a href="#projects">
               {" "}
               <Button
@@ -51,9 +82,9 @@ function HeroSection({
                 Contact Me
               </Button>
             </a>
-          </div>
+          </motion.div>
 
-          <div className="flex gap-5 pt-4">
+          <motion.div variants={item} className="flex gap-5 pt-4">
             <a
               href="/Sithu-Aung-Frontend-Developer-Resume.pdf"
               download
@@ -100,11 +131,19 @@ function HeroSection({
             >
               <Github size={22} />
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* RIGHT */}
-        <div className="flex justify-center md:justify-end">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.4,
+          }}
+          className="flex justify-center md:justify-end"
+        >
           <Card className="p-2 shadow-xl border">
             <CardContent className="p-0">
               <img
@@ -113,9 +152,9 @@ function HeroSection({
               />
             </CardContent>
           </Card>
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 }
 
