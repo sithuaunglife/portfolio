@@ -22,9 +22,7 @@ function HeroSection({
   },
 }: Props) {
   return (
-    <motion.section
-      animate={{ opacity: 1 }} // opacity: 1 is fully visible
-      transition={{ duration: 0.8 }}
+    <section
       className="min-h-screen flex items-center py-10 pt-24"
       id="hero"
     >
@@ -154,7 +152,7 @@ function HeroSection({
           </Card>
         </motion.div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 }
 
