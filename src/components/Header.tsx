@@ -9,6 +9,8 @@ import {
 
 import { Home, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
+import { container, item } from "@/lib/animations";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +46,13 @@ function Header() {
   }, [scrolled]);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeOut",
+      }}
       className={`fixed top-0 left-0 w-full z-50 px-4 transition-all duration-300
       ${show ? "translate-y-0" : "-translate-y-full"}
       ${
@@ -53,27 +61,45 @@ function Header() {
           : "bg-transparent border-transparent"
       }`}
     >
-      <div className="container py-2 mx-auto flex items-center justify-between md:mb-2">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="container py-2 mx-auto flex items-center justify-between md:mb-2"
+      >
         {/* Logo */}
-        <a
+        <motion.a
+          variants={item}
           href="#hero"
           className="text-red-700 font-medium px-4 py-2 rounded-xl hover:bg-muted transition"
         >
           Sithu Aung
-        </a>
+        </motion.a>
 
         {/* Desktop Nav */}
-        <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList className="gap-4">
-            <NavItem href="#hero">
-              <Home className="size-5" />
-            </NavItem>
-            <NavItem href="#projects">Projects</NavItem>
-            <NavItem href="#skills">Skills</NavItem>
-            <NavItem href="#about">About</NavItem>
-            <NavItem href="#contact">Contact</NavItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+        <motion.div variants={container} initial="hidden" animate="show">
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList className="gap-4">
+              <motion.div variants={item}>
+                <NavItem href="#hero">
+                  <Home className="size-5" />
+                </NavItem>
+              </motion.div>
+              <motion.div variants={item}>
+                <NavItem href="#projects">Projects</NavItem>
+              </motion.div>
+              <motion.div variants={item}>
+                <NavItem href="#skills">Skills</NavItem>
+              </motion.div>
+              <motion.div variants={item}>
+                <NavItem href="#about">About</NavItem>
+              </motion.div>
+              <motion.div variants={item}>
+                <NavItem href="#contact">Contact</NavItem>
+              </motion.div>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </motion.div>
 
         {/* Mobile Button (only after scroll) */}
         <button
@@ -89,7 +115,7 @@ function Header() {
         >
           {open ? <X /> : <Menu />}
         </button>
-      </div>
+      </motion.div>
 
       {/* Mobile Dropdown (separate from container) */}
       {open && (
@@ -113,7 +139,7 @@ function Header() {
           </div>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }
 

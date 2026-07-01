@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Seperator from "@/components/Seperator";
+import Separator from "@/components/Separator";
 import AboutLayout from "@/features/about/components/AboutLayout";
 import ContactLayout from "@/features/contact/ContactLayout";
 import HeroLayout from "@/features/hero/components/HeroLayout";
@@ -12,13 +12,13 @@ export default function Page() {
     <>
       <Header />
       <HeroLayout />
-      <Seperator />
+      <Separator />
       <ProjectLayout />
-      <Seperator />
+      <Separator />
       <SkillLayout />
-      <Seperator />
+      <Separator />
       <AboutLayout />
-      <Seperator />
+      <Separator />
       <ContactLayout />
       <Footer />
     </>

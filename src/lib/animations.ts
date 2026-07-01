@@ -4,7 +4,7 @@ export const container: Variants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.15, // delays the start of each child animation by **0.15 seconds**
+      staggerChildren: 0.20, // delays the start of each child animation by **0.30 seconds**
     },
   },
 };
