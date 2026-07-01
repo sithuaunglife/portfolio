@@ -1,46 +1,88 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
+import { container, item } from "@/lib/animations";
 import { Briefcase, Code2 } from "lucide-react";
+import { motion } from "motion/react";
 
 function AboutSection() {
   return (
     <section id="about" className="py-10">
-      <div className="max-w-5xl mx-auto px-6 space-y-12">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }} // opacity : 0 is fully invisible, initial is starting state of the animation, x is same is translate x
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{
+          duration: 0.8, // animation duration
+          delay: 0.2, // delay time before starting the animation
+        }}
+        className="max-w-5xl mx-auto px-6 space-y-12"
+      >
         {/* TEXT CONTENT (FREE, NOT INSIDE CARD) */}
-        <div className="space-y-6 max-w-3xl">
-          <h1 className="text-5xl font-bold tracking-tight">About Me</h1>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="space-y-6 max-w-3xl"
+        >
+          <motion.h1
+            variants={item}
+            className="text-5xl font-bold tracking-tight"
+          >
+            About Me
+          </motion.h1>
 
-          <h2 className="text-2xl text-muted-foreground tracking-tight">
+          <motion.h2
+            variants={item}
+            className="text-2xl text-muted-foreground tracking-tight"
+          >
             Frontend Developer
-          </h2>
+          </motion.h2>
 
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <motion.p
+            variants={item}
+            className="text-lg text-muted-foreground leading-relaxed"
+          >
             I focus on building clean, modern, and user-friendly interfaces. I
             enjoy turning ideas into real products and crafting experiences that
             feel smooth and intuitive.
-          </p>
+          </motion.p>
 
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <motion.p
+            variants={item}
+            className="text-lg text-muted-foreground leading-relaxed"
+          >
             My journey started with curiosity and grew into a habit of
             consistent learning — showing up every day, improving little by
             little, and solving problems along the way.
-          </p>
+          </motion.p>
 
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <motion.p
+            variants={item}
+            className="text-lg text-muted-foreground leading-relaxed"
+          >
             I work mainly with React, Next.js, and TypeScript, and I’m currently
             focused on strengthening my understanding of architecture, logic,
             and real-world development.
-          </p>
+          </motion.p>
 
-          <p className="text-lg font-medium text-foreground">
+          <motion.p
+            variants={item}
+            className="text-lg font-medium text-foreground"
+          >
             My goal is to become a freelance developer and bring ideas to life
             with precision and creativity.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* CARDS SECTION (FOR EXPERIENCE / PROJECTS) */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-6"
+        >
           {/* Experience Card */}
           <Card className="p-4 hover:shadow-md transition hover:scale-105">
             <CardContent className="space-y-1.5">
@@ -74,8 +116,8 @@ function AboutSection() {
               </p>
             </CardContent>
           </Card>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
