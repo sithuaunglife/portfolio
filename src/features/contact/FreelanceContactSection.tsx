@@ -10,6 +10,8 @@ import { Github, Linkedin, Send } from "lucide-react";
 import { FaUpwork } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { ContactTypes } from "@/types/ContactTypes";
+import { motion } from "motion/react";
+import { container, item } from "@/lib/animations";
 
 type Props = {
   contact: ContactTypes;
@@ -49,23 +51,38 @@ function FreelanceContactSection({
   return (
     <section id="contact" className="py-16">
       {/* Header */}
-      <div className="text-center space-y-3 mb-12">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }} // opacity : 0 is fully invisible, initial is starting state of the animation, x is same is translate x
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{
+          duration: 0.8, // animation duration
+          delay: 0.2, // delay time before starting the animation
+        }}
+        className="text-center space-y-3 mb-12"
+      >
         <h1 className="text-5xl font-bold tracking-tight">Contact Me</h1>
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
           Let’s work together. I’m available for freelance opportunities. Feel
           free to message me directly on the platform where you found me to
           discuss your project.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-1 gap-10">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="max-w-5xl mx-auto px-6 grid md:grid-cols-1 gap-10"
+      >
         {/* SOCIAL / CONTACT CARDS */}
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-center md:text-left">
+        <motion.div variants={container} className="space-y-4">
+          <motion.h3 variants={item} className="text-xl font-semibold text-center md:text-left">
             Connect with me
-          </h3>
+          </motion.h3>
 
-          <div className="grid grid-cols-2 gap-4">
+          <motion.div variants={item} className="grid grid-cols-2 gap-4">
             <a href={github} target="_blank" rel="noopener noreferrer">
               <Card className="p-3 text-center hover:scale-105 hover:shadow-md transition">
                 <CardContent className="flex items-center justify-center gap-2">
@@ -74,9 +91,9 @@ function FreelanceContactSection({
                 </CardContent>
               </Card>
             </a>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
