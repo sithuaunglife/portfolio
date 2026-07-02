@@ -1,6 +1,6 @@
 # Sithu Aung — Frontend Developer Portfolio
 
-A minimalist, sleek, high-tech developer portfolio focused on clarity, performance, and modern web craftsmanship.
+A minimalist developer portfolio focused on clarity, performance, and modern web craftsmanship.
 
 ## Tech Stack
 - Next.js
@@ -20,3 +20,4 @@ A minimalist, sleek, high-tech developer portfolio focused on clarity, performan
 - v1.2.0 - Freelance safe update
 - v1.3.1 - Resume update
 - v1.4.1 - Motion update
+- v1.5.2 - Motion & Polish update
